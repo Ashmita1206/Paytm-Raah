@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAAH — Demo Merchant QR Codes for Testing & Presentation</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #F5F7FA;
+      color: #1E293B;
+      padding: 30px 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header {
+      background: #002970;
+      color: #fff;
+      padding: 24px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .header h1 {
+      margin: 0 0 6px 0;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header p {
+      margin: 0;
+      font-size: 14px;
+      color: #E6F8FE;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .qr-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .qr-card h2 {
+      font-size: 17px;
+      margin: 0 0 4px 0;
+      color: #002970;
+    }
+    .vpa {
+      font-size: 13px;
+      color: #64748B;
+      margin-bottom: 16px;
+      font-family: monospace;
+      background: #F1F5F9;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+    .qr-img {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 16px auto;
+      display: block;
+      border-radius: 8px;
+      border: 4px solid #F8FAFC;
+    }
+    .amount-badge {
+      background: #E6F8FE;
+      color: #002970;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .desc {
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.5;
+    }
+    .instructions {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 24px;
+      font-size: 13px;
+      color: #92400E;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><span>🛡️</span> RAAH — Test Merchant QR Codes</h1>
+      <p>Scan these QR codes using the RAAH mobile app to test Smart Scan, RetryGuard protection, and Raah Rescue recovery.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Merchant 1: Grocery Store -->
+      <div class="qr-card">
+        <h2>Demo Fresh Grocery Store</h2>
+        <div class="vpa">grocery@paytm</div>
+        <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3Dgrocery%40paytm%26pn%3DDemo%2BFresh%2BGrocery%2BStore%26am%3D4000" alt="Grocery QR">
+        <div class="amount-badge">₹4,000</div>
+        <div class="desc">
+          <strong>Flagship Case:</strong> Triggers debit-reported / beneficiary unconfirmed scenario, leading directly into the Raah Rescue investigation workflow.
+        </div>
+      </div>
+
+      <!-- Merchant 2: Cafe -->
+      <div class="qr-card">
+        <h2>Demo Artisanal Cafe</h2>
+        <div class="vpa">cafe@paytm</div>
+        <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3Dcafe%40paytm%26pn%3DDemo%2BArtisanal%2BCafe%26am%3D750" alt="Cafe QR">
+        <div class="amount-badge">₹750</div>
+        <div class="desc">
+          <strong>Success Verification:</strong> Payment succeeds on switch. Demonstrates authoritative verification without creating fake reversal cases.
+        </div>
+      </div>
+
+      <!-- Merchant 3: Pharmacy -->
+      <div class="qr-card">
+        <h2>Demo City Medico Pharmacy</h2>
+        <div class="vpa">pharmacy@paytm</div>
+        <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3Dpharmacy%40paytm%26pn%3DDemo%2BCity%2BMedico%2BPharmacy%26am%3D1200" alt="Pharmacy QR">
+        <div class="amount-badge">₹1,200</div>
+        <div class="desc">
+          <strong>Pre-Debit Failure:</strong> Transaction rejected prior to account debit. Explains reason and verifies that customer is safe to retry.
+        </div>
+      </div>
+    </div>
+
+    <div class="instructions">
+      <strong>Presentation Tip:</strong> You can open this HTML file in your computer browser and point the RAAH Android app camera at any of the QR codes above, OR use the in-app "Quick-Select" buttons directly inside the scanner screen!
+    </div>
+  </div>
+</body>
+</html>
